@@ -85,35 +85,36 @@
   top: 10px;
   left: 8px;
 }
-
+/*  */
 .auto-complete {
-  display: none;
+  position: absolute; 
+  z-index: 1000; 
+  max-height: 200px; 
+  overflow-y: auto; 
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  width: 100%; 
+  display: none; 
 }
 
+/*  */
 .auto-complete--active {
-  display: block;
-  position: absolute;
-  width: 100%;
-  background-color: #fff;
-  bottom: calc(100% + 2px);
-  margin: 0;
-  padding: 0;
-  max-height: 125px;
-  scrollbar-width: auto;
-  overflow: auto;
-  font-size: 9px;
-  font-weight: 700;
-  list-style: none;
-  font-family: Arial,sans-serif;
+  display: block; 
 }
 
-li {
-  color: #a7a7a7;
-  padding: 3px 6px;
+/* Options of ul */
+.auto-complete li {
+  padding: 10px; 
+  cursor: pointer; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 }
 
-li:hover {
-  background: #eeeeee;
+/* when are selected */
+.auto-complete li:hover {
+  background-color: #f0f0f0; 
 }
 
 .creativeProduct {
