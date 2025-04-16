@@ -144,7 +144,11 @@ $('#return-date').on('change', function () {
   return_date = $(this).val(); 
   return_date_format = formatDateToCustom(new Date(return_date)); 
 
-  validateDates(); // validate the dates
+  if (!validateDates()) {
+    searchInputToRef.attr("disabled", "true"); 
+  } else {
+    searchInputToRef.removeAttr("disabled"); 
+  }
 });
 
 
@@ -160,6 +164,8 @@ $("#submitBtn").click(function(event) {
   }
 
   $(".search-input").attr("data-touched", "true")
+
+  const datesAreValid = validateDates();
 
   if (from && to && outward_date_format && return_date_format) {
     const url =`https://www.gotogate.com/air/${from}${to}${outward_date_format}${return_date_format}&blue`
