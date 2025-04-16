@@ -105,6 +105,19 @@ searchInputToRef.focus(function() {
 
 
 /* DATE */
+//Function to validate the date
+function validateDates() {
+  const outwardDate = new Date(outward_date);
+  const returnDate = new Date(return_date);
+
+  if (outward_date && return_date && outwardDate > returnDate) {
+    $('#return-date').css('border', '2px solid red'); 
+    return false; 
+  } else {
+    $('#return-date').css('border', ''); 
+    return true; // valid!!!
+  }
+}
 
 // Function to get the current date in YYYY-MM-DD format
 function formatDateToCustom(date) {
@@ -116,18 +129,24 @@ function formatDateToCustom(date) {
 
 // Selected the current date
 $('#outward-date').on('change', function () {
-  const selectedDate = new Date($(this).val());
-  outward_date = $(this).val(); // save the date
-  outward_date_format = formatDateToCustom(selectedDate); 
+  const selectedOutwardDate = new Date($(this).val());
+  outward_date = $(this).val(); //save the date
+
+  // put the min date in the return date input
+  $('#return-date').attr('min', outward_date);
+
+  outward_date_format = formatDateToCustom(selectedOutwardDate); 
   console.log('Outward Date:', outward_date_format); 
 });
 
+// event listener for the return date input
 $('#return-date').on('change', function () {
-  const selectedDate = new Date($(this).val());
   return_date = $(this).val(); 
-  return_date_format = formatDateToCustom(selectedDate); 
-  console.log('Return Date:', return_date_format); 
+  return_date_format = formatDateToCustom(new Date(return_date)); 
+
+  validateDates(); // validate the dates
 });
+
 
 
 $("#submitBtn").click(function(event) {
@@ -147,11 +166,10 @@ $("#submitBtn").click(function(event) {
     // ejemple="https://www.gotogate.com/air/NYCYTO01JUN07JUN&blue"
     console.log(url);
     window.location = url;
-  } else if(from && to){
+  } else if (from && to && (!outward_date_format || !return_date_format)){
     const url = `https://de.gotogate.com/rf/destination?from=${from}&to=${to}&text=9&utm_source=blue&utm_medium=cpc&utm_campaign=DE_gotogate.com_tgrp25&domain=blue&campaign=remarketing-blue_DE_tgrp25`;
     console.log("if 2" +url);
     window.location = url;
-
   }
 });
 
