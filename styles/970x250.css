@@ -119,6 +119,42 @@
   background-color: #f0f0f0; 
 }
 
+
+/* DATE */
+.date-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaciado entre los inputs */
+}
+
+.date-inputs div {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-inputs label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.date-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.date-input:focus {
+  border-color: #0b96ec;
+  outline: none;
+  box-shadow: 0 0 4px rgba(11, 150, 236, 0.5);
+}
+
+/*ENDING DATE*/
+
 .creativeProduct {
   right: 0 !important;
   height: 250px !important;
