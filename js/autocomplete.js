@@ -88,6 +88,7 @@ $("#submitBtn").click(function(event) {
 
   if (from && to) {
     const url = `https://de.gotogate.com/rf/destination?from=${from}&to=${to}&text=9&utm_source=blue&utm_medium=cpc&utm_campaign=DE_gotogate.com_tgrp25&domain=blue&campaign=remarketing-blue_DE_tgrp25`;
+    console.log(url);
     window.location = url;
   }
 });
