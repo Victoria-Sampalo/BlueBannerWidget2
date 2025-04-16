@@ -27,6 +27,8 @@ const list = city_from;
 let filteredList = list;
 let filteredDestiny = destiny;
 
+console.log("bluetest autocomplete");
+
 const searchInputFromRef = $('#search-input-from');
 const searchInputToRef = $('#search-input-to');
 const autoCompleteFromRef = $('#auto-complete-from');
