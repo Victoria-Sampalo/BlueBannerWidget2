@@ -97,6 +97,7 @@
   width: 100%; 
   display: none; 
   padding:1;
+  top:15px;
 }
 
 /*  */
@@ -124,7 +125,7 @@
 .date-inputs {
   display: flex;
   flex-direction: row;
-  gap: 30px; /* Espaciado entre los inputs */
+  gap: 30px; /* Space between inputs */
 }
 
 .date-inputs div {

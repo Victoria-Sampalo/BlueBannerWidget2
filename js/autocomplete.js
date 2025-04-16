@@ -144,8 +144,9 @@ $('#return-date').on('change', function () {
   return_date = $(this).val(); 
   return_date_format = formatDateToCustom(new Date(return_date)); 
 
-  if (!validateDates()) {
-    searchInputToRef.attr("disabled", "true"); 
+  const datesAreValid = validateDates(); // Save the result of validation
+  if (!datesAreValid) {
+    searchInputToRef.attr("disabled", "true"); // disable the field "To"
   } else {
     searchInputToRef.removeAttr("disabled"); 
   }
@@ -172,11 +173,16 @@ $("#submitBtn").click(function(event) {
     // ejemple="https://www.gotogate.com/air/NYCYTO01JUN07JUN&blue"
     console.log(url);
     window.location = url;
-  } else if (from && to && (!outward_date_format || !return_date_format)){
-    const url = `https://de.gotogate.com/rf/destination?from=${from}&to=${to}&text=9&utm_source=blue&utm_medium=cpc&utm_campaign=DE_gotogate.com_tgrp25&domain=blue&campaign=remarketing-blue_DE_tgrp25`;
-    console.log("if 2" +url);
-    window.location = url;
+  } else {
+    
+    console.log("Invalid dates");
   }
+
+  // else if (from && to && (!outward_date_format || !return_date_format)){
+  //   const url = `https://de.gotogate.com/rf/destination?from=${from}&to=${to}&text=9&utm_source=blue&utm_medium=cpc&utm_campaign=DE_gotogate.com_tgrp25&domain=blue&campaign=remarketing-blue_DE_tgrp25`;
+  //   console.log("if 2" +url);
+  //   window.location = url;
+  // }
 });
 
 autoCompleteFromRef.on("click", "li", function(e) {
