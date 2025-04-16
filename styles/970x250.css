@@ -55,8 +55,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   border-radius: 8px;
   color: #fff;
 }
@@ -123,8 +123,8 @@
 /* DATE */
 .date-inputs {
   display: flex;
-  flex-direction: column;
-  gap: 15px; /* Espaciado entre los inputs */
+  flex-direction: row;
+  gap: 30px; /* Espaciado entre los inputs */
 }
 
 .date-inputs div {
@@ -133,9 +133,9 @@
 }
 
 .date-inputs label {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 5px;
-  color: #333;
+  color: #fff;
 }
 
 .date-input {

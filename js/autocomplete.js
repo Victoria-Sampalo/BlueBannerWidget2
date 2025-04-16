@@ -44,21 +44,11 @@ const formElement = `
 
 $('.bannerBorder').append(formElement);
 
-function getCurrentTime() {
-  const now = new Date();
-  const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth() + 1).padStart(2, '0'); // Los meses empiezan en 0
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  
-  return `${day}/${month} ${hours}:${minutes}`;
-}
-
-const currentTime = getCurrentTime();
-console.log(currentTime);
 
 let from = null;
 let to = null;
+let outward_date=null;
+let return_date=null;
 let destiny = city_to;
 const list = city_from;
 let filteredList = list;
@@ -113,6 +103,33 @@ searchInputToRef.focus(function() {
   autoCompleteToRef.addClass('auto-complete--active');
 });
 
+
+/* DATE */
+
+// Function to get the current date in YYYY-MM-DD format
+function formatDateToCustom(date) {
+  const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = months[date.getMonth()];
+  return `${day}${month}`;
+}
+
+// Selected the current date
+$('#outward-date').on('change', function () {
+  const selectedDate = new Date($(this).val());
+  outward_date = $(this).val(); // save the date
+  outward_date_format = formatDateToCustom(selectedDate); 
+  console.log('Outward Date:', outward_date_format); 
+});
+
+$('#return-date').on('change', function () {
+  const selectedDate = new Date($(this).val());
+  return_date = $(this).val(); 
+  return_date_format = formatDateToCustom(selectedDate); 
+  console.log('Return Date:', return_date_format); 
+});
+
+
 $("#submitBtn").click(function(event) {
   event.preventDefault();
   if (!from) {
@@ -125,10 +142,16 @@ $("#submitBtn").click(function(event) {
 
   $(".search-input").attr("data-touched", "true")
 
-  if (from && to) {
-    const url = `https://de.gotogate.com/rf/destination?from=${from}&to=${to}&text=9&utm_source=blue&utm_medium=cpc&utm_campaign=DE_gotogate.com_tgrp25&domain=blue&campaign=remarketing-blue_DE_tgrp25`;
+  if (from && to && outward_date_format && return_date_format) {
+    const url =`https://www.gotogate.com/air/${from}${to}${outward_date_format}${return_date_format}&blue`
+    // ejemple="https://www.gotogate.com/air/NYCYTO01JUN07JUN&blue"
     console.log(url);
     window.location = url;
+  } else if(from && to){
+    const url = `https://de.gotogate.com/rf/destination?from=${from}&to=${to}&text=9&utm_source=blue&utm_medium=cpc&utm_campaign=DE_gotogate.com_tgrp25&domain=blue&campaign=remarketing-blue_DE_tgrp25`;
+    console.log("if 2" +url);
+    window.location = url;
+
   }
 });
 
