@@ -12,6 +12,20 @@ const formElement = `
       <svg class='search-input-icon' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='22' height='22' viewBox='0 0 22 22'> <image width='22' height='22' xlink:href='data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAC0ElEQVQ4jWL8////fwZqAwYGBgAAAAD//2KihaEMDAwMAAAAAP//oo3BDAwMAAAAAP//oo3BDAwMAAAAAP//QjF48+bNDE1NTQzv37+Hi+3Zs4ehvr6e4eXLl8SbysDAAAAAAP//wjD469evDGvXroWLbd++neHv378Mc+fOJd5UBgYGAAAAAP//QjH4169fDHFxcQxbt26Fi/3+/ZshJiaGYe/evWB5ogADAwMAAAD//8IIY2FhYQYtLS2GgIAAhv7+fobXr18zMDExMXh6ejJs27aNOHMZGBgAAAAA//9iAKVjGIiPj////PlzMPf379//z549+7+3t/f/u3fv/j969Oh/SEjI/1evXiFrwQ7+//8PAAAA//9iQbZESEiI4cOHDwwSEhIMLCwsDEZGRmAMAoKCggxeXl4MmZmZDO/evWPQ19cHy7m7uzOIiYmhupaBgQEAAAD//3zOoQEAMAgEsbUY7QUbYTGMhXl71Zj6iJxxVZGZ2P5udpfuRhIRwcxcADwAAAD//0IxGOT95cuXg72ckZHxf+XKlf9fv36N15IbN278d3Z2RhX8//8/AAAA///CWVaA0u3+/fsZDh8+zPDx40cGU1NTBnt7e3AQMDIyoqhNTk5maGhoYJCVlYUIMDAwAAAAAP//IqoQ+vPnD8OFCxcYDh06xHD16lUGUVFRBgcHBwZbW1sGbm5uhtzcXDBWU1ODaGBgYAAAAAD//yKrdANFHsg3J0+eZPjx4wfDzZs3GSZPnowwmIGBAQAAAP//QgljcsDfv3//Hzt27P+PHz8Q2v///w8AAAD//yLo4rdv3zLcuXOHoC9AmQgUD2DAwMAAAAAA//9CScfYwKVLlxiuXLlCVBDJyckxiIuLMzAwMDAAAAAA//+iTQ3CwMAAAAAA//+iTXnMwMAAAAAA//+ijcEMDAwAAAAA//+ijcEMDAwAAAAA//8DACUC1XwDGJuJAAAAAElFTkSuQmCC'></image> </svg>
       <input disabled required data-touched="false" invalid class='search-input' id='search-input-to' placeholder='To'>
     </div>
+    <div>
+      <div class='outward-date-wrapper'>
+        <input placeholder="Outward journey" name="singleBound.departureDate" autocomplete="off" 
+        data-testid="singleBound.departureDate-input" id="singleBound.departureDate" 
+        inputmode="none" aria-invalid="false" 
+        class="2" type="date" value="" data-listener-added_7f67e6f0="true">
+      </div>
+      <div class='return-date-wrapper'>
+      <input placeholder="Return journey" name="singleBound.returnDate" autocomplete="off" 
+      data-testid="singleBound.returnDate-input" id="singleBound.returnDate" 
+      inputmode="none" aria-invalid="false" 
+      class="2" type="text" value="2025-04-23" data-listener-added_7f67e6f0="true">
+      </div>
+    </div>
     <a class='search-submit-btn' href='#' target='_blank' id='submitBtn'>
       <span>Search flights</span>
     </a>
